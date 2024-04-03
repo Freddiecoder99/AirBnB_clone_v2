@@ -25,7 +25,7 @@
 sudo apt-get update
 
 # 1. install nginx if it not install nginx
-command -v nginx > dev/null || sudo apt-get install -y nginx
+which nginx > dev/null || sudo apt-get install -y nginx
 #  sudo ufw allow 'Nginx HTTP'
 
 # 2 - 6. create requiured directories
