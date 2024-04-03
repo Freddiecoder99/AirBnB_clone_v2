@@ -25,7 +25,7 @@
 sudo apt-get update
 
 # 1. install nginx if it not installed
-which nginx > /dev/null || sudo apt-get install -y nginx
+sudo apt-get install -y nginx
 #  sudo ufw allow 'Nginx HTTP'
 
 # 2 - 6. create requiured directories
@@ -58,7 +58,7 @@ sudo chown -R ubuntu:ubuntu /data/
 
 #. serving the content on the serverwith nginx
 
-sudo sed -i '/listen 80 default_server/a location /hbnb_static { alias /data/web_static/current/;}' /etc/nginx/sites-enabled/default
+sudo sed -i '/listen 80 default_server/a \tlocation /hbnb_static { alias /data/web_static/current/;}' /etc/nginx/sites-enabled/default
 
 # test nginx
 sudo nginx -t
