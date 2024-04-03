@@ -26,12 +26,15 @@ sudo apt-get update
 
 # 1. install nginx if it not installed
 which nginx > /dev/null || sudo apt-get install -y nginx
-
-sudo ufw allow 'Nginx HTTP'
+#  sudo ufw allow 'Nginx HTTP'
 
 # 2 - 6. create requiured directories
-sudo mkdir /data/web_static/releases/test/
-sudo mkdir data/web_static/shared/
+sudo mkdir -p /data/
+sudo mkdir -p /data/web_static/
+sudo mkdir -p /data/web_static/releases/
+sudo mkdir -p /data/web_static/shared/
+sudo mkdir -p /data/web_static/releases/test/
+sudo touch /data/web_static/releases/test/index.html
 
 # 7. create a random html page
 
@@ -44,11 +47,14 @@ echo "<html>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 
 # 8. creating a symbolic lnk
-sudo In -sfn /data/web_static/releases/test/ /data/web_static/current
+sudo ln -s -f /data/web_static/releases/test/ /data/web_static/current
 
 # granting ownership to userand group
 
-sudo chown -R ubuntu:ubuntu /data
+
+sudo chown -R ubuntu:ubuntu /data/
+
+# backup nginx default
 
 #. serving the content on the serverwith nginx
 
