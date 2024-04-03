@@ -24,8 +24,8 @@
 # 0. update the machine
 sudo apt-get update
 
-# 1. install nginx if it not installed
-sudo apt-get -y install nginx
+# 1. install nginx if it not install nginx
+command -v nginx > dev/null || sudo apt-get install -y nginx
 #  sudo ufw allow 'Nginx HTTP'
 
 # 2 - 6. create requiured directories
@@ -42,7 +42,7 @@ echo "<html>
   <head>
   </head>
   <body>
-    Missing you Sandy
+    Holberton School
   </body>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 
