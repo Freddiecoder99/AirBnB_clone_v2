@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-    Creating and distributing an archive to the web servers
+    Creating and distributing an archive to the web servers 
+    on all the servers
 """
 
 from fabric.api import env, local, put, run
