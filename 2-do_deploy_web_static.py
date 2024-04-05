@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-# Fabric script (based on the file 2-do_deploy_web_static.py)
-# creates and distributes an archive to your web servers, using the function deploy
+"""
+    Distributes an archive to your web servers,
+    using the function do_deploy
+    def do_deploy(archive_path):
+    Return False iff archive path doesn't exist
+"""
 
 from fabric.api import put, run, env
 from os.path import exists
@@ -8,6 +12,7 @@ env.hosts = ['34.239.207.252', '54.237.76.244']
 env.user = 'ubuntu'
 env.identity = '~/.ssh/school'
 env.password = None
+
 
 def do_deploy(archive_path):
     """
