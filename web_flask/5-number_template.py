@@ -8,8 +8,7 @@
 6. create a /number/<n> route
 """
 
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
 
 app = Flask("__name__")
 
@@ -70,11 +69,12 @@ def is_a_number(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def dispay_int_html(n):
+def number_template(n=None):
     """ display a HTML page only if n is an integer"""
 
-    return render_template('5-number.html', number=n)
+    if isinstance(n, int):
+        return render_template('5-number.html', number=n)
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='5000', debug=None)
+    app.run()
