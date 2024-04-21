@@ -9,9 +9,8 @@
 """
 
 from flask import Flask
-from flask import render_template
 
-app = Flask(__name__)
+app = Flask"(__name__")
 
 # task 0
 
@@ -65,14 +64,6 @@ def is_a_number(n):
     """
 
     return "{} is a number".format(n)
-
-# task 5
-
-
-@app.route('/number_template/<int:n>', strict_slashes=False)
-def number_template(n=None):
-    """display a HTML page only if n is an integer"""
-    return render_template("5-number.html", n=n)
 
 
 if __name__ == "__main__":
