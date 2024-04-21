@@ -3,6 +3,7 @@
 
 from flask import Flask
 from flask import render_template
+import models
 from models import storage
 from models.state import State
 
@@ -14,9 +15,8 @@ app = Flask(__name__)
 def display_states():
     """ dispplay states in html page """
 
-    states = storage().all("State").values()
-    sorted_states = sorted(states, key=lambda state: state.name)
-    return render_template('7-states_list.html', states=sorted_states)
+    states = storage.all()
+    return render_template('7-states_list.html', states=states)
 
 
 @app.teardown_appcontext
