@@ -24,7 +24,7 @@
 sudo apt-get update
 
 # 1. install nginx if it not installed
-sudo apt-get install -y nginx
+sudo apt-get -y install nginx
 #  sudo ufw allow 'Nginx HTTP'
 
 # 2 - 6. create requiured directories
@@ -46,7 +46,7 @@ echo "<html>
 </html>"| sudo tee /data/web_static/releases/test/index.html
 
 # 8. creating a symbolic lnk
-sudo ln -sfn /data/web_static/releases/test/ /data/web_static/current
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 # granting ownership to userand group
 
 

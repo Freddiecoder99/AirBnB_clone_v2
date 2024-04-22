@@ -4,11 +4,18 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
+<<<<<<< HEAD
         <H1>States</H1>
         <UL>
         {% for state in states %}
             <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
         {% endfor %}
+=======
+    <H1>States</H1>
+        <UL> {% for state in states.values()|sort(attribute="name") %}
+            <LI>{{state.id}}: <B>{{state.name}}</B></LI>
+            {% endfor %}
+>>>>>>> 365ffa39d2e9e7463dcfc2bc2a6d116df35790d3
         </UL>
     </BODY>
 </HTML>

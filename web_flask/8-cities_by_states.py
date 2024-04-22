@@ -1,15 +1,34 @@
 #!/usr/bin/python3
 """
+<<<<<<< HEAD
 starts a Flask web applicationstart Flask application"""
 
 from flask import Flask, render_template
 from models import *
 from models import storage
 app = Flask(__name__)
+=======
+rendering states and cities by flask
+"""
+from flask import Flask, render_template
+from models import storage
+from models.state import State
+app = Flask(__name__)
+storage.all()
+
+
+@app.teardown_appcontext
+def teardown_data(self):
+    """
+        refrech data
+    """
+    storage.close()
+>>>>>>> 365ffa39d2e9e7463dcfc2bc2a6d116df35790d3
 
 
 @app.route('/cities_by_states', strict_slashes=False)
 def cities_by_states():
+<<<<<<< HEAD
     """display the states and cities listed in alphabetical order"""
     states = storage.all("State").values()
     return render_template('8-cities_by_states.html', states=states)
@@ -22,3 +41,13 @@ def teardown_db(exception):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000')
+=======
+    """ return all citie in the db  """
+    states = storage.all(State)
+
+    return render_template('8-cities_by_states.html', states=states)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
+>>>>>>> 365ffa39d2e9e7463dcfc2bc2a6d116df35790d3

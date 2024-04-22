@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <HTML lang="en">
+<<<<<<< HEAD
     <HEAD>
         <TITLE>HBNB</TITLE>
     </HEAD>
@@ -17,4 +18,21 @@
         {% endfor %}
         </UL>
     </BODY>
+=======
+<HEAD>
+    <TITLE>HBNB</TITLE>
+</HEAD>
+<BODY>
+<H1>States</H1>
+<UL> {% for state in states.values()|sort(attribute="name") %}
+    <LI>State: {{state.id}}: <B>{{state.name}}</B>
+        <UL> {% for city in state.cities|sort(attribute="name") %}
+            <LI>City: {{city.id}}: <B>{{city.name}}</B></LI>
+            {% endfor %}
+        </UL>
+    </LI>
+    {% endfor %}
+</UL>
+</BODY>
+>>>>>>> 365ffa39d2e9e7463dcfc2bc2a6d116df35790d3
 </HTML>
